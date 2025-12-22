@@ -1,0 +1,776 @@
+{
+  "name": "golangci-lint",
+  "version": "2.5.0",
+  "patterns": [
+    {
+      "patternId": "arangolint",
+      "category": "CodeStyle",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "asasalint",
+      "category": "CodeStyle",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "asciicheck",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "bidichk",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "bodyclose",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "canonicalheader",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "containedctx",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "contextcheck",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "copyloopvar",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "cyclop",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "decorder",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "depguard",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "dogsled",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "dupl",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "dupword",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "durationcheck",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "embeddedstructfieldcheck",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "err113",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "errcheck",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "errchkjson",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "errname",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "errorlint",
+      "category": "CodeStyle",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "exhaustive",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "exhaustruct",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "exptostd",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "fatcontext",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "forbidigo",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "forcetypeassert",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "funcorder",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "funlen",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "ginkgolinter",
+      "category": "CodeStyle",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "gocheckcompilerdirectives",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "gochecknoglobals",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "gochecknoinits",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "gochecksumtype",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "gocognit",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "goconst",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "gocritic",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "gocyclo",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "godoclint",
+      "category": "CodeStyle",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "godot",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "godox",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "goheader",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "gomoddirectives",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "gomodguard",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "goprintffuncname",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "gosec",
+      "category": "Security",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "gosmopolitan",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "govet",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "grouper",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "iface",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "importas",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "inamedparam",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "ineffassign",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "interfacebloat",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "intrange",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "iotamixing",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "ireturn",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "lll",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "loggercheck",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "maintidx",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "makezero",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "mirror",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "misspell",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "mnd",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "musttag",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "nakedret",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "nestif",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "nilerr",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "nilnesserr",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "nilnil",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "nlreturn",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "noctx",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "noinlineerr",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "nolintlint",
+      "category": "CodeStyle",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "nonamedreturns",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "nosprintfhostport",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "paralleltest",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "perfsprint",
+      "category": "Performance",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "prealloc",
+      "category": "Performance",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "predeclared",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "promlinter",
+      "category": "CodeStyle",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "protogetter",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "reassign",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "recvcheck",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "revive",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "rowserrcheck",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "sloglint",
+      "category": "CodeStyle",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "spancheck",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "sqlclosecheck",
+      "category": "Security",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "staticcheck",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "tagalign",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "tagliatelle",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "testableexamples",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "testifylint",
+      "category": "CodeStyle",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "testpackage",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "thelper",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "tparallel",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "unconvert",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "unparam",
+      "category": "UnusedCode",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "unqueryvet",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "unused",
+      "category": "UnusedCode",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "usestdlibvars",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "usetesting",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "varnamelen",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "wastedassign",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "whitespace",
+      "category": "CodeStyle",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "wrapcheck",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "wsl_v5",
+      "category": "ErrorProne",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "zerologlint",
+      "category": "CodeStyle",
+      "scanType": "SAST",
+      "level": "Info",
+      "enabled": false
+    }
+  ]
+}

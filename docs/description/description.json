@@ -1,0 +1,552 @@
+[
+  {
+    "patternId": "arangolint",
+    "title": "arangolint",
+    "description": "Opinionated best practices for arangodb client."
+  },
+  {
+    "patternId": "asasalint",
+    "title": "asasalint",
+    "description": "Check for pass []any as any in variadic func(...any)."
+  },
+  {
+    "patternId": "asciicheck",
+    "title": "asciicheck",
+    "description": "Checks that all code identifiers does not have non-ASCII symbols in the name."
+  },
+  {
+    "patternId": "bidichk",
+    "title": "bidichk",
+    "description": "Checks for dangerous unicode character sequences."
+  },
+  {
+    "patternId": "bodyclose",
+    "title": "bodyclose",
+    "description": "Checks whether HTTP response body is closed successfully."
+  },
+  {
+    "patternId": "canonicalheader",
+    "title": "canonicalheader",
+    "description": "Canonicalheader checks whether net/http.Header uses canonical header."
+  },
+  {
+    "patternId": "containedctx",
+    "title": "containedctx",
+    "description": "Containedctx is a linter that detects struct contained context.Context field."
+  },
+  {
+    "patternId": "contextcheck",
+    "title": "contextcheck",
+    "description": "Check whether the function uses a non-inherited context."
+  },
+  {
+    "patternId": "copyloopvar",
+    "title": "copyloopvar",
+    "description": "A linter detects places where loop variables are copied."
+  },
+  {
+    "patternId": "cyclop",
+    "title": "cyclop",
+    "description": "Checks function and package cyclomatic complexity."
+  },
+  {
+    "patternId": "decorder",
+    "title": "decorder",
+    "description": "Check declaration order and count of types, constants, variables and functions."
+  },
+  {
+    "patternId": "depguard",
+    "title": "depguard",
+    "description": "Go linter that checks if package imports are in a list of acceptable packages."
+  },
+  {
+    "patternId": "dogsled",
+    "title": "dogsled",
+    "description": "Checks assignments with too many blank identifiers (e.g. x, _, _, _, := f())."
+  },
+  {
+    "patternId": "dupl",
+    "title": "dupl",
+    "description": "Detects duplicate fragments of code."
+  },
+  {
+    "patternId": "dupword",
+    "title": "dupword",
+    "description": "Checks for duplicate words in the source code."
+  },
+  {
+    "patternId": "durationcheck",
+    "title": "durationcheck",
+    "description": "Check for two durations multiplied together."
+  },
+  {
+    "patternId": "embeddedstructfieldcheck",
+    "title": "embeddedstructfieldcheck",
+    "description": "Embedded types should be at the top of the field list of a struct, and there must be an empty line separating embedded fields from regular fields."
+  },
+  {
+    "patternId": "err113",
+    "title": "err113",
+    "description": "Check errors handling expressions."
+  },
+  {
+    "patternId": "errcheck",
+    "title": "errcheck",
+    "description": "Errcheck is a program for checking for unchecked errors in Go code. These unchecked errors can be critical bugs in some cases."
+  },
+  {
+    "patternId": "errchkjson",
+    "title": "errchkjson",
+    "description": "Checks types passed to the json encoding functions. Reports unsupported types and reports occurrences where the check for the returned error can be omitted."
+  },
+  {
+    "patternId": "errname",
+    "title": "errname",
+    "description": "Checks that sentinel errors are prefixed with the `Err` and error types are suffixed with the `Error`."
+  },
+  {
+    "patternId": "errorlint",
+    "title": "errorlint",
+    "description": "Find code that can cause problems with the error wrapping scheme introduced in Go 1.13."
+  },
+  {
+    "patternId": "exhaustive",
+    "title": "exhaustive",
+    "description": "Check exhaustiveness of enum switch statements."
+  },
+  {
+    "patternId": "exhaustruct",
+    "title": "exhaustruct",
+    "description": "Checks if all structure fields are initialized."
+  },
+  {
+    "patternId": "exptostd",
+    "title": "exptostd",
+    "description": "Detects functions from golang.org/x/exp/ that can be replaced by std functions."
+  },
+  {
+    "patternId": "fatcontext",
+    "title": "fatcontext",
+    "description": "Detects nested contexts in loops and function literals."
+  },
+  {
+    "patternId": "forbidigo",
+    "title": "forbidigo",
+    "description": "Forbids identifiers."
+  },
+  {
+    "patternId": "forcetypeassert",
+    "title": "forcetypeassert",
+    "description": "Find forced type assertions."
+  },
+  {
+    "patternId": "funcorder",
+    "title": "funcorder",
+    "description": "Checks the order of functions, methods, and constructors."
+  },
+  {
+    "patternId": "funlen",
+    "title": "funlen",
+    "description": "Checks for long functions."
+  },
+  {
+    "patternId": "ginkgolinter",
+    "title": "ginkgolinter",
+    "description": "Enforces standards of using ginkgo and gomega."
+  },
+  {
+    "patternId": "gocheckcompilerdirectives",
+    "title": "gocheckcompilerdirectives",
+    "description": "Checks that go compiler directive comments (//go:) are valid."
+  },
+  {
+    "patternId": "gochecknoglobals",
+    "title": "gochecknoglobals",
+    "description": "Check that no global variables exist."
+  },
+  {
+    "patternId": "gochecknoinits",
+    "title": "gochecknoinits",
+    "description": "Checks that no init functions are present in Go code."
+  },
+  {
+    "patternId": "gochecksumtype",
+    "title": "gochecksumtype",
+    "description": "Run exhaustiveness checks on Go \"sum types\"."
+  },
+  {
+    "patternId": "gocognit",
+    "title": "gocognit",
+    "description": "Computes and checks the cognitive complexity of functions."
+  },
+  {
+    "patternId": "goconst",
+    "title": "goconst",
+    "description": "Finds repeated strings that could be replaced by a constant."
+  },
+  {
+    "patternId": "gocritic",
+    "title": "gocritic",
+    "description": "Provides diagnostics that check for bugs, performance and style issues."
+  },
+  {
+    "patternId": "gocyclo",
+    "title": "gocyclo",
+    "description": "Computes and checks the cyclomatic complexity of functions."
+  },
+  {
+    "patternId": "godoclint",
+    "title": "godoclint",
+    "description": "Checks Golang's documentation practice (godoc)."
+  },
+  {
+    "patternId": "godot",
+    "title": "godot",
+    "description": "Check if comments end in a period."
+  },
+  {
+    "patternId": "godox",
+    "title": "godox",
+    "description": "Detects usage of FIXME, TODO and other keywords inside comments."
+  },
+  {
+    "patternId": "goheader",
+    "title": "goheader",
+    "description": "Check if file header matches to pattern."
+  },
+  {
+    "patternId": "gomoddirectives",
+    "title": "gomoddirectives",
+    "description": "Manage the use of 'replace', 'retract', and 'excludes' directives in go.mod."
+  },
+  {
+    "patternId": "gomodguard",
+    "title": "gomodguard",
+    "description": "Allow and blocklist linter for direct Go module dependencies. This is different from depguard where there are different block types for example version constraints and module recommendations."
+  },
+  {
+    "patternId": "goprintffuncname",
+    "title": "goprintffuncname",
+    "description": "Checks that printf-like functions are named with `f` at the end."
+  },
+  {
+    "patternId": "gosec",
+    "title": "gosec",
+    "description": "Inspects source code for security problems."
+  },
+  {
+    "patternId": "gosmopolitan",
+    "title": "gosmopolitan",
+    "description": "Report certain i18n/l10n anti-patterns in your Go codebase."
+  },
+  {
+    "patternId": "govet",
+    "title": "govet",
+    "description": "Vet examines Go source code and reports suspicious constructs. It is roughly the same as 'go vet' and uses its passes."
+  },
+  {
+    "patternId": "grouper",
+    "title": "grouper",
+    "description": "Analyze expression groups."
+  },
+  {
+    "patternId": "iface",
+    "title": "iface",
+    "description": "Detect the incorrect use of interfaces, helping developers avoid interface pollution."
+  },
+  {
+    "patternId": "importas",
+    "title": "importas",
+    "description": "Enforces consistent import aliases."
+  },
+  {
+    "patternId": "inamedparam",
+    "title": "inamedparam",
+    "description": "Reports interfaces with unnamed method parameters."
+  },
+  {
+    "patternId": "ineffassign",
+    "title": "ineffassign",
+    "description": "Detects when assignments to existing variables are not used."
+  },
+  {
+    "patternId": "interfacebloat",
+    "title": "interfacebloat",
+    "description": "A linter that checks the number of methods inside an interface."
+  },
+  {
+    "patternId": "intrange",
+    "title": "intrange",
+    "description": "Intrange is a linter to find places where for loops could make use of an integer range."
+  },
+  {
+    "patternId": "iotamixing",
+    "title": "iotamixing",
+    "description": "Checks if iotas are being used in const blocks with other non-iota declarations."
+  },
+  {
+    "patternId": "ireturn",
+    "title": "ireturn",
+    "description": "Accept Interfaces, Return Concrete Types."
+  },
+  {
+    "patternId": "lll",
+    "title": "lll",
+    "description": "Reports long lines."
+  },
+  {
+    "patternId": "loggercheck",
+    "title": "loggercheck",
+    "description": "Checks key value pairs for common logger libraries (kitlog,klog,logr,slog,zap)."
+  },
+  {
+    "patternId": "maintidx",
+    "title": "maintidx",
+    "description": "Maintidx measures the maintainability index of each function."
+  },
+  {
+    "patternId": "makezero",
+    "title": "makezero",
+    "description": "Find slice declarations with non-zero initial length."
+  },
+  {
+    "patternId": "mirror",
+    "title": "mirror",
+    "description": "Reports wrong mirror patterns of bytes/strings usage."
+  },
+  {
+    "patternId": "misspell",
+    "title": "misspell",
+    "description": "Finds commonly misspelled English words."
+  },
+  {
+    "patternId": "mnd",
+    "title": "mnd",
+    "description": "An analyzer to detect magic numbers."
+  },
+  {
+    "patternId": "musttag",
+    "title": "musttag",
+    "description": "Enforce field tags in (un)marshaled structs."
+  },
+  {
+    "patternId": "nakedret",
+    "title": "nakedret",
+    "description": "Checks that functions with naked returns are not longer than a maximum size (can be zero)."
+  },
+  {
+    "patternId": "nestif",
+    "title": "nestif",
+    "description": "Reports deeply nested if statements."
+  },
+  {
+    "patternId": "nilerr",
+    "title": "nilerr",
+    "description": "Find the code that returns nil even if it checks that the error is not nil."
+  },
+  {
+    "patternId": "nilnesserr",
+    "title": "nilnesserr",
+    "description": "Reports constructs that checks for err != nil, but returns a different nil value error."
+  },
+  {
+    "patternId": "nilnil",
+    "title": "nilnil",
+    "description": "Checks that there is no simultaneous return of `nil` error and an invalid value."
+  },
+  {
+    "patternId": "nlreturn",
+    "title": "nlreturn",
+    "description": "Checks for a new line before return and branch statements to increase code clarity."
+  },
+  {
+    "patternId": "noctx",
+    "title": "noctx",
+    "description": "Detects function and method with missing usage of context.Context."
+  },
+  {
+    "patternId": "noinlineerr",
+    "title": "noinlineerr",
+    "description": "Disallows inline error handling (`if err := ...; err != nil {`)."
+  },
+  {
+    "patternId": "nolintlint",
+    "title": "nolintlint",
+    "description": "Reports ill-formed or insufficient nolint directives."
+  },
+  {
+    "patternId": "nonamedreturns",
+    "title": "nonamedreturns",
+    "description": "Reports all named returns."
+  },
+  {
+    "patternId": "nosprintfhostport",
+    "title": "nosprintfhostport",
+    "description": "Checks for misuse of Sprintf to construct a host with port in a URL."
+  },
+  {
+    "patternId": "paralleltest",
+    "title": "paralleltest",
+    "description": "Detects missing usage of t.Parallel() method in your Go test."
+  },
+  {
+    "patternId": "perfsprint",
+    "title": "perfsprint",
+    "description": "Checks that fmt.Sprintf can be replaced with a faster alternative."
+  },
+  {
+    "patternId": "prealloc",
+    "title": "prealloc",
+    "description": "Find slice declarations that could potentially be pre-allocated."
+  },
+  {
+    "patternId": "predeclared",
+    "title": "predeclared",
+    "description": "Find code that shadows one of Go's predeclared identifiers."
+  },
+  {
+    "patternId": "promlinter",
+    "title": "promlinter",
+    "description": "Check Prometheus metrics naming via promlint."
+  },
+  {
+    "patternId": "protogetter",
+    "title": "protogetter",
+    "description": "Reports direct reads from proto message fields when getters should be used."
+  },
+  {
+    "patternId": "reassign",
+    "title": "reassign",
+    "description": "Checks that package variables are not reassigned."
+  },
+  {
+    "patternId": "recvcheck",
+    "title": "recvcheck",
+    "description": "Checks for receiver type consistency."
+  },
+  {
+    "patternId": "revive",
+    "title": "revive",
+    "description": "Fast, configurable, extensible, flexible, and beautiful linter for Go. Drop-in replacement of golint."
+  },
+  {
+    "patternId": "rowserrcheck",
+    "title": "rowserrcheck",
+    "description": "Checks whether Rows.Err of rows is checked successfully."
+  },
+  {
+    "patternId": "sloglint",
+    "title": "sloglint",
+    "description": "Ensure consistent code style when using log/slog."
+  },
+  {
+    "patternId": "spancheck",
+    "title": "spancheck",
+    "description": "Checks for mistakes with OpenTelemetry/Census spans."
+  },
+  {
+    "patternId": "sqlclosecheck",
+    "title": "sqlclosecheck",
+    "description": "Checks that sql.Rows, sql.Stmt, sqlx.NamedStmt, pgx.Query are closed."
+  },
+  {
+    "patternId": "staticcheck",
+    "title": "staticcheck",
+    "description": "It's the set of rules from staticcheck."
+  },
+  {
+    "patternId": "tagalign",
+    "title": "tagalign",
+    "description": "Check that struct tags are well aligned."
+  },
+  {
+    "patternId": "tagliatelle",
+    "title": "tagliatelle",
+    "description": "Checks the struct tags."
+  },
+  {
+    "patternId": "testableexamples",
+    "title": "testableexamples",
+    "description": "Linter checks if examples are testable (have an expected output)."
+  },
+  {
+    "patternId": "testifylint",
+    "title": "testifylint",
+    "description": "Checks usage of github.com/stretchr/testify."
+  },
+  {
+    "patternId": "testpackage",
+    "title": "testpackage",
+    "description": "Linter that makes you use a separate _test package."
+  },
+  {
+    "patternId": "thelper",
+    "title": "thelper",
+    "description": "Thelper detects tests helpers which do not start with the t.Helper() method."
+  },
+  {
+    "patternId": "tparallel",
+    "title": "tparallel",
+    "description": "Tparallel detects inappropriate usage of t.Parallel() method in your Go test codes."
+  },
+  {
+    "patternId": "unconvert",
+    "title": "unconvert",
+    "description": "Remove unnecessary type conversions."
+  },
+  {
+    "patternId": "unparam",
+    "title": "unparam",
+    "description": "Reports unused function parameters."
+  },
+  {
+    "patternId": "unqueryvet",
+    "title": "unqueryvet",
+    "description": "Detects SELECT * in SQL queries and SQL builders, preventing performance issues and encouraging explicit column selection."
+  },
+  {
+    "patternId": "unused",
+    "title": "unused",
+    "description": "Checks Go code for unused constants, variables, functions and types."
+  },
+  {
+    "patternId": "usestdlibvars",
+    "title": "usestdlibvars",
+    "description": "A linter that detect the possibility to use variables/constants from the Go standard library."
+  },
+  {
+    "patternId": "usetesting",
+    "title": "usetesting",
+    "description": "Reports uses of functions with replacement inside the testing package."
+  },
+  {
+    "patternId": "varnamelen",
+    "title": "varnamelen",
+    "description": "Checks that the length of a variable's name matches its scope."
+  },
+  {
+    "patternId": "wastedassign",
+    "title": "wastedassign",
+    "description": "Finds wasted assignment statements."
+  },
+  {
+    "patternId": "whitespace",
+    "title": "whitespace",
+    "description": "Whitespace is a linter that checks for unnecessary newlines at the start and end of functions, if, for, etc."
+  },
+  {
+    "patternId": "wrapcheck",
+    "title": "wrapcheck",
+    "description": "Checks that errors returned from external packages are wrapped."
+  },
+  {
+    "patternId": "wsl_v5",
+    "title": "wsl_v5",
+    "description": "Add or remove empty lines."
+  },
+  {
+    "patternId": "zerologlint",
+    "title": "zerologlint",
+    "description": "Detects the wrong usage of `zerolog` that a user forgets to dispatch with `Send` or `Msg`."
+  }
+]

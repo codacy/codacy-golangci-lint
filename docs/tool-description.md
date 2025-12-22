@@ -1,0 +1,1 @@
+golangci-lint is a fast, performance-focused linters runner for the Go programming language. It's an aggregator that bundles and runs different static analysis tools simultaneously. [Learn more](https://github.com/golangci/golangci-lint)
