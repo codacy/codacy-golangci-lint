@@ -15,7 +15,6 @@ object GolangCILintReportParser {
     val pos = c.downField("Pos")
 
     for {
-      // Handle empty string severity by treating "" as "info"
       severityRaw <- c.get[Option[String]]("Severity")
       severity = severityRaw.filter(_.nonEmpty).getOrElse("info")
 
@@ -23,7 +22,6 @@ object GolangCILintReportParser {
       details <- c.downField("Text").as[String]
       fileStr <- pos.downField("Filename").as[String]
 
-      // Improved Line parsing
       line <- pos.downField("Line").as[Int].orElse {
         pos.downField("Line").as[String].flatMap { s =>
           parseLine(s).toRight(DecodingFailure(s"Invalid line format: $s", pos.history))
@@ -63,7 +61,6 @@ object GolangCILintReportParser {
 
       decode[GolangCILintResult](cleanedJson).map { report =>
         val relativizedIssues = report.issues.map { issue =>
-          // Use the relativizeTo path provided
           val relativePathStr = relativizeTo.relativize(Paths.get(issue.file).toAbsolutePath).toString
           issue.copy(file = relativePathStr)
         }
