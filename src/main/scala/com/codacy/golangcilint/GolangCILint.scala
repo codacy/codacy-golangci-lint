@@ -1,10 +1,8 @@
 package com.codacy.golangcilint
 
-import java.nio.file.Path
-import java.nio.file.Paths
+import java.nio.file.{Path, Paths}
 
-import com.codacy.analysis.core.model.IssuesAnalysis
-import com.codacy.analysis.core.model.IssuesAnalysis.FileResults
+import com.codacy.analysis.core.model.IssuesAnalysis._
 import com.codacy.tool.ClientSideToolEngine
 
 object GolangCILint extends ClientSideToolEngine(toolName = "golangci-lint") {

@@ -2,7 +2,7 @@ module github.com/codacy/gosec-doc-generator
 
 go 1.23.0
 
-toolchain go1.24.5
+toolchain go1.25.5
 
 require github.com/codacy/codacy-engine-golang-seed/v6 v6.4.0
 

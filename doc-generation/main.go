@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
-	"path"
+	"path/filepath"
 	"sort"
 	"strings"
 
@@ -52,17 +52,17 @@ func run() error {
 
 	// Remove old documentation to ensure deprecated linters are deleted
 	// Delete patterns.json
-	patternsPath := path.Join(docFolder, "patterns.json")
+	patternsPath := filepath.Join(docFolder, "patterns.json")
 	if err := os.Remove(patternsPath); err != nil && !os.IsNotExist(err) {
 		return fmt.Errorf("failed to remove old patterns.json: %w", err)
 	}
 
 	// Delete and recreate description folder (removes description.json and all .md files)
-	descPath := path.Join(docFolder, "description")
+	descPath := filepath.Join(docFolder, "description")
 	if err := os.RemoveAll(descPath); err != nil {
 		return fmt.Errorf("failed to clean description folder: %w", err)
 	}
-	if err := os.MkdirAll(descPath, 0755); err != nil {
+	if err := os.MkdirAll(descPath, 0600); err != nil {
 		return err
 	}
 
@@ -170,18 +170,18 @@ func createPatternsJSONFile(patterns []codacy.Pattern, version string) error {
 		Patterns: &patterns,
 	}
 	data, _ := json.MarshalIndent(tool, "", "  ")
-	return os.WriteFile(path.Join(docFolder, "patterns.json"), data, 0644)
+	return os.WriteFile(filepath.Join(docFolder, "patterns.json"), data, 0600)
 }
 
 func createDescriptionFiles(descriptions []codacy.PatternDescription) error {
 	for _, d := range descriptions {
 		content := fmt.Sprintf("## %s\n\n%s\n", d.PatternID, d.Description)
-		err := os.WriteFile(path.Join(docFolder, "description", d.PatternID+".md"), []byte(content), 0644)
+		err := os.WriteFile(filepath.Join(docFolder, "description", d.PatternID+".md"), []byte(content), 0600)
 		if err != nil {
 			return err
 		}
 	}
 
 	data, _ := json.MarshalIndent(descriptions, "", "  ")
-	return os.WriteFile(path.Join(docFolder, "description", "description.json"), data, 0644)
+	return os.WriteFile(filepath.Join(docFolder, "description", "description.json"), data, 0600)
 }

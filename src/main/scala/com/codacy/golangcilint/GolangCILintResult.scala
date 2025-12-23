@@ -27,8 +27,15 @@ case class GolangCILintIssue(severity: String, ruleId: String, details: String, 
   }
 
   private def convertCategory(ruleId: String): Option[results.Pattern.Category] = {
-    if (ruleId.contains("gosec")) Some(results.Pattern.Category.Security)
-    else if (ruleId.contains("unused") || ruleId.contains("deadcode")) Some(results.Pattern.Category.UnusedCode)
-    else Some(results.Pattern.Category.ErrorProne)
+    ruleId match {
+      case s if s.contains("gosec") =>
+        Some(results.Pattern.Category.Security)
+
+      case s if s.contains("unused") || s.contains("deadcode") =>
+        Some(results.Pattern.Category.UnusedCode)
+
+      case _ =>
+        Some(results.Pattern.Category.ErrorProne)
+    }
   }
 }
