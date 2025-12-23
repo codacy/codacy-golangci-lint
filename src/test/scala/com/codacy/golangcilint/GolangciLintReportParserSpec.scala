@@ -17,12 +17,13 @@ class GolangCILintReportParserSpec extends AnyWordSpec with Matchers {
   "GolangCILint Reporter parser" should {
     "parse the json correctly" in {
       val resultLines = Seq(CommonTestMock.resultJsonText)
-      val result = GolangCILintReportParser.fromJson(resultLines,CommonTestMock.currentDir)
+      val result = GolangCILintReportParser.fromJson(resultLines, CommonTestMock.currentDir)
       assertSuccess(result, CommonTestMock.resultAsGolangCILintResult)
     }
 
     "fail parsing on invalid json" in {
-      val result = GolangCILintReportParser.fromJson(Seq("""{"Issues": [ { "Pos": { "Line": "not-a-number" } } ] }"""), CommonTestMock.currentDir)
+      val result = GolangCILintReportParser
+        .fromJson(Seq("""{"Issues": [ { "Pos": { "Line": "not-a-number" } } ] }"""), CommonTestMock.currentDir)
       assertFailure(result)
     }
 

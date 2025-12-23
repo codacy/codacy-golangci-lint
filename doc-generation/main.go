@@ -62,7 +62,7 @@ func run() error {
 	if err := os.RemoveAll(descPath); err != nil {
 		return fmt.Errorf("failed to clean description folder: %w", err)
 	}
-	if err := os.MkdirAll(descPath, 0600); err != nil {
+	if err := os.MkdirAll(descPath, 0755); err != nil {
 		return err
 	}
 
@@ -145,22 +145,24 @@ func toCodacyPatternsDescription(linters []LinterMetadata) []codacy.PatternDescr
 	return descriptions
 }
 
+var categoryMap = map[string][]string{
+	"Security":    {"sec", "gosec"},
+	"UnusedCode":  {"unused", "dead", "unparam"},
+	"CodeStyle":   {"style", "fmt", "lint", "whitespace"},
+	"Performance": {"perf", "prealloc"},
+	"Complexity":  {"complexity", "cognitive"},
+}
+
 func mapCategory(name string) string {
-	name = strings.ToLower(name)
-	switch {
-	case strings.Contains(name, "sec") || strings.Contains(name, "gosec"):
-		return "Security"
-	case strings.Contains(name, "unused") || strings.Contains(name, "dead") || strings.Contains(name, "unparam"):
-		return "UnusedCode"
-	case strings.Contains(name, "style") || strings.Contains(name, "fmt") || strings.Contains(name, "lint") || strings.Contains(name, "whitespace"):
-		return "CodeStyle"
-	case strings.Contains(name, "perf") || strings.Contains(name, "prealloc"):
-		return "Performance"
-	case strings.Contains(name, "complexity") || strings.Contains(name, "cognitive"):
-		return "Complexity"
-	default:
-		return "ErrorProne"
+	lowerName := strings.ToLower(name)
+	for category, keywords := range categoryMap {
+		for _, keyword := range keywords {
+			if strings.Contains(lowerName, keyword) {
+				return category
+			}
+		}
 	}
+	return "ErrorProne"
 }
 
 func createPatternsJSONFile(patterns []codacy.Pattern, version string) error {

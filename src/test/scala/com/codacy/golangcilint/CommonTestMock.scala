@@ -13,23 +13,14 @@ object CommonTestMock {
   // golangci-lint specific fields
   val patternId = "errcheck" // The actual linter that found the issue
   val resultPatternId = s"golangci-lint_$patternId"
-  
+
   val issueText = "Error return value of `ioutil.WriteFile` is not checked"
   val line = 10
   val column = 4
   val severity = "info"
 
   val resultAsGolangCILintResult: GolangCILintResult = GolangCILintResult(
-    Seq(
-      GolangCILintIssue(
-        severity,
-        resultPatternId,
-        issueText,
-        filename,
-        line,
-        column
-      )
-    )
+    Seq(GolangCILintIssue(severity, resultPatternId, issueText, filename, line, column))
   )
 
   val fileResults: FileResults = FileResults(

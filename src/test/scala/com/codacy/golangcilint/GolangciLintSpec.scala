@@ -40,13 +40,17 @@ class GolangCILintSpec extends AnyWordSpec with Matchers with PrivateMethodTeste
     }
 
     "convert golangcilint report into codacy file results report" in {
-      val fileResults = GolangCILint invokePrivate golangcilintReportToIssuesAnalysis(CommonTestMock.resultAsGolangCILintResult)
+      val fileResults = GolangCILint invokePrivate golangcilintReportToIssuesAnalysis(
+        CommonTestMock.resultAsGolangCILintResult
+      )
 
       fileResults mustEqual Success(Set(CommonTestMock.fileResults))
     }
 
     "return success" in {
-      val issuesAnalysis = GolangCILint invokePrivate golangcilintReportToIssuesAnalysis(CommonTestMock.resultAsGolangCILintResult)
+      val issuesAnalysis = GolangCILint invokePrivate golangcilintReportToIssuesAnalysis(
+        CommonTestMock.resultAsGolangCILintResult
+      )
       issuesAnalysis mustBe a[Success]
     }
   }
