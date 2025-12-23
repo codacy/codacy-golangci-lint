@@ -6,14 +6,7 @@ import com.codacy.plugins.api.results
 
 case class GolangCILintResult(issues: Seq[GolangCILintIssue])
 
-case class GolangCILintIssue(
-    severity: String,
-    ruleId: String,
-    details: String,
-    file: String,
-    line: Int,
-    column: Int
-) {
+case class GolangCILintIssue(severity: String, ruleId: String, details: String, file: String, line: Int, column: Int) {
 
   def toCodacyIssue(toolName: String): Issue = {
     Issue(
