@@ -1,5 +1,7 @@
 FROM golang:1.25-alpine3.23 AS builder
 
+SHELL ["/bin/ash", "-o", "pipefail", "-c"]
+
 COPY doc-generation /doc-generation
 
 WORKDIR /doc-generation
