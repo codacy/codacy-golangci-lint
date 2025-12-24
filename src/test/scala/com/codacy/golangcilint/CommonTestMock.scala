@@ -10,7 +10,6 @@ object CommonTestMock {
   val filename = "main.go"
   val fileNamePath: Path = Paths.get(filename)
 
-  // golangci-lint specific fields
   val patternId = "errcheck" // The actual linter that found the issue
   val resultPatternId = s"golangci-lint_$patternId"
 
@@ -31,7 +30,7 @@ object CommonTestMock {
         fileNamePath,
         Issue.Message(issueText),
         results.Result.Level.Info,
-        Some(results.Pattern.Category.ErrorProne),
+        None,
         FullLocation(line, column)
       )
     )

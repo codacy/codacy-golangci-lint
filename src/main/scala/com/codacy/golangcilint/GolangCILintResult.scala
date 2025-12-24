@@ -14,7 +14,7 @@ case class GolangCILintIssue(severity: String, ruleId: String, details: String, 
       Paths.get(file),
       Issue.Message(details),
       convertLevel(severity),
-      convertCategory(ruleId),
+      None,
       FullLocation(line, column)
     )
   }
@@ -24,18 +24,5 @@ case class GolangCILintIssue(severity: String, ruleId: String, details: String, 
     case "warning" | "medium" => results.Result.Level.Warn
     case "info" | "low" => results.Result.Level.Info
     case _ => results.Result.Level.Info
-  }
-
-  private def convertCategory(ruleId: String): Option[results.Pattern.Category] = {
-    ruleId match {
-      case s if s.contains("gosec") =>
-        Some(results.Pattern.Category.Security)
-
-      case s if s.contains("unused") || s.contains("deadcode") =>
-        Some(results.Pattern.Category.UnusedCode)
-
-      case _ =>
-        Some(results.Pattern.Category.ErrorProne)
-    }
   }
 }

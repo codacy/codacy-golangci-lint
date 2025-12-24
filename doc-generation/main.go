@@ -28,6 +28,11 @@ type LintersOutput struct {
 	Disabled []LinterMetadata `json:"Disabled"`
 }
 
+type categoryRule struct {
+	Category string
+	Keywords []string
+}
+
 var docFolder string
 
 func main() {
@@ -145,24 +150,29 @@ func toCodacyPatternsDescription(linters []LinterMetadata) []codacy.PatternDescr
 	return descriptions
 }
 
-var categoryMap = map[string][]string{
-	"Security":    {"sec", "gosec"},
-	"UnusedCode":  {"unused", "dead", "unparam"},
-	"CodeStyle":   {"style", "fmt", "lint", "whitespace"},
-	"Performance": {"perf", "prealloc"},
-	"Complexity":  {"complexity", "cognitive"},
+var prioritizedRules = []categoryRule{
+	{"Security", []string{"gosec", "sqlclose", "bidichk"}},
+	{"Performance", []string{"prealloc", "perfsprint", "makezero", "mirror"}},
+	{"Complexity", []string{"cyclo", "cognit", "maint", "nest", "funlen"}},
+	{"Duplication", []string{"dupl", "goconst"}},
+	{"Documentation", []string{"godoc", "godot", "godox"}},
+	{"UnusedCode", []string{"unused", "unparam", "ineffassign", "wastedassign"}},
+	{"BestPractice", []string{"test", "exhaustive", "forbidigo", "contextcheck"}},
+	{"CodeStyle", []string{"lint", "style", "whitespace", "lll", "align", "revive"}},
+	{"Compatibility", []string{"compat", "exptostd"}},
+	{"Comprehensibility", []string{"varnamelen", "name"}},
 }
 
 func mapCategory(name string) string {
 	lowerName := strings.ToLower(name)
-	for category, keywords := range categoryMap {
-		for _, keyword := range keywords {
+	for _, rule := range prioritizedRules {
+		for _, keyword := range rule.Keywords {
 			if strings.Contains(lowerName, keyword) {
-				return category
+				return rule.Category
 			}
 		}
 	}
-	return "ErrorProne"
+	return "ErrorProne" // Default
 }
 
 func createPatternsJSONFile(patterns []codacy.Pattern, version string) error {
