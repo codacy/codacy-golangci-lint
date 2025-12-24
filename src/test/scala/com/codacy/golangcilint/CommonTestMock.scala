@@ -19,7 +19,7 @@ object CommonTestMock {
   val severity = "info"
 
   val resultAsGolangCILintResult: GolangCILintResult = GolangCILintResult(
-    Seq(GolangCILintIssue(severity, resultPatternId, issueText, filename, line, column))
+    Seq(GolangCILintIssue(resultPatternId, issueText, filename, line, column))
   )
 
   val fileResults: FileResults = FileResults(
@@ -41,15 +41,13 @@ object CommonTestMock {
   def generateResultJsonText(
       linter: String = patternId,
       lineNum: Int = line,
-      text: String = issueText,
-      severity: String = severity
+      text: String = issueText
   ): String =
     s"""{
        |  "Issues": [
        |    {
        |      "FromLinter": "$resultPatternId",
        |      "Text": "$text",
-       |      "Severity": "$severity",
        |      "SourceLines": [
        |        "ioutil.WriteFile(path.Join(docsFolder,docsDescriptionFolder,example.ID+\\".md\\\",),[]byte(exampleMD),0644,)"
        |      ],

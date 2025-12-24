@@ -15,9 +15,6 @@ object GolangCILintReportParser {
     val pos = c.downField("Pos")
 
     for {
-      severityRaw <- c.get[Option[String]]("Severity")
-      severity = severityRaw.filter(_.nonEmpty).getOrElse("info")
-
       ruleId <- c.downField("FromLinter").as[String]
       details <- c.downField("Text").as[String]
       fileStr <- pos.downField("Filename").as[String]
@@ -29,15 +26,7 @@ object GolangCILintReportParser {
       }
 
       column <- pos.downField("Column").as[Int]
-    } yield
-      GolangCILintIssue(
-        severity = severity,
-        ruleId = ruleId,
-        details = details,
-        file = fileStr,
-        line = line,
-        column = column
-      )
+    } yield GolangCILintIssue(ruleId = ruleId, details = details, file = fileStr, line = line, column = column)
   }
 
   implicit val golangcilintResultDecoder: Decoder[GolangCILintResult] = (c: HCursor) =>

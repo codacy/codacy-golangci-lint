@@ -6,23 +6,16 @@ import com.codacy.plugins.api.results
 
 case class GolangCILintResult(issues: Seq[GolangCILintIssue])
 
-case class GolangCILintIssue(severity: String, ruleId: String, details: String, file: String, line: Int, column: Int) {
+case class GolangCILintIssue(ruleId: String, details: String, file: String, line: Int, column: Int) {
 
   def toCodacyIssue(toolName: String): Issue = {
     Issue(
       results.Pattern.Id(ruleId),
       Paths.get(file),
       Issue.Message(details),
-      convertLevel(severity),
+      results.Result.Level.Info,
       None,
       FullLocation(line, column)
     )
-  }
-
-  private def convertLevel(level: String): results.Result.Level.Value = level.toLowerCase match {
-    case "error" | "high" => results.Result.Level.Err
-    case "warning" | "medium" => results.Result.Level.Warn
-    case "info" | "low" => results.Result.Level.Info
-    case _ => results.Result.Level.Info
   }
 }
