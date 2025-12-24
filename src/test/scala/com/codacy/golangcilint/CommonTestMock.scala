@@ -38,11 +38,7 @@ object CommonTestMock {
 
   val resultJsonText: String = generateResultJsonText()
 
-  def generateResultJsonText(
-      linter: String = patternId,
-      lineNum: Int = line,
-      text: String = issueText
-  ): String =
+  def generateResultJsonText(linter: String = patternId, lineNum: Int = line, text: String = issueText): String =
     s"""{
        |  "Issues": [
        |    {
