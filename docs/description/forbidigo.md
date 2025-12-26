@@ -1,0 +1,3 @@
+## forbidigo
+
+Forbids identifiers.

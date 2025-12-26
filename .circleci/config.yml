@@ -1,0 +1,90 @@
+version: 2.1
+
+orbs:
+  codacy: codacy/base@13.0.0
+
+workflows:
+  version: 2
+  compile_test_deploy:
+    jobs:
+      - codacy/checkout_and_version:
+          write_sbt_version: true
+      - codacy/sbt:
+          name: populate_cache
+          persist_to_workspace: true
+          cmd: |
+            sbt "clean;
+                 scalafmtCheckAll;
+                 Test / scalafmtCheck;
+                 scalafmtCheck;"
+          requires:
+            - codacy/checkout_and_version
+      - codacy/sbt:
+          name: check_fmt
+          cmd: sbt test:scalafmt scalafmt scalafmtSbt
+          requires:
+            - populate_cache
+      - codacy/sbt:
+          name: compile
+          persist_to_workspace: true
+          cmd: sbt compile
+          requires:
+            - populate_cache
+      - codacy/sbt:
+          name: test_and_coverage
+          cmd: |
+            sbt coverage test coverageReport
+            sbt coverageAggregate
+            bash <(curl -Ls https://coverage.codacy.com/get.sh) report --skip
+          requires:
+            - compile
+      - codacy/sbt:
+          name: package_artifacts
+          persist_to_workspace: true
+          cmd: |
+            sbt clean "graalvm-native-image:packageBin" "assembly"
+            mkdir -p ~/workdir/artifacts/
+            mv target/scala-2.13/codacy-golangci-lint-assembly-$(cat .version).jar ~/workdir/artifacts/codacy-golangci-lint-$(cat .version).jar
+            mv target/graalvm-native-image/codacy-golangci-lint ~/workdir/artifacts/codacy-golangci-lint-$(cat .version)
+            ls ~/workdir/artifacts/
+          requires:
+            - check_fmt
+            - test_and_coverage
+      - codacy/shell:
+          name: docker_publish_local
+          cmd: |
+            docker build -t codacy-golangci-lint .
+            docker save --output docker-image.tar $CIRCLE_PROJECT_REPONAME:latest
+          persist_to_workspace: true
+          requires:
+            - package_artifacts
+      - codacy/publish_docker:
+          name: publish_dockerhub
+          context: CodacyAWS
+          requires:
+            - docker_publish_local
+          filters:
+            branches:
+              only:
+                - master
+      - codacy/publish_ghr:
+          name: publish_ghr
+          path: ~/workdir/artifacts/
+          filters:
+            branches:
+              only:
+                - master
+          context: CodacyGitHub
+          requires:
+            - package_artifacts
+      - codacy/publish_s3:
+          name: publish_s3
+          path: bin/codacy-golangci-lint
+          files: artifacts/codacy-golangci-lint-$(cat .version) artifacts/codacy-golangci-lint-$(cat .version).jar
+          filters:
+            branches:
+              only:
+                - master
+          context: CodacyAWS
+          requires:
+            - package_artifacts

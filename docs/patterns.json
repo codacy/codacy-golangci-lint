@@ -1,0 +1,669 @@
+{
+  "name": "golangci-lint",
+  "version": "2.5.0",
+  "patterns": [
+    {
+      "patternId": "arangolint",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "asasalint",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "asciicheck",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "bidichk",
+      "category": "Security",
+      "scanType": "SAST",
+      "level": "Error",
+      "enabled": false
+    },
+    {
+      "patternId": "bodyclose",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "canonicalheader",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "containedctx",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "contextcheck",
+      "category": "BestPractice",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "copyloopvar",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "cyclop",
+      "category": "Complexity",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "decorder",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "depguard",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "dogsled",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "dupl",
+      "category": "Duplication",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "dupword",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "durationcheck",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "embeddedstructfieldcheck",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "err113",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "errcheck",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "errchkjson",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "errname",
+      "category": "Comprehensibility",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "errorlint",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "exhaustive",
+      "category": "BestPractice",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "exhaustruct",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "exptostd",
+      "category": "Compatibility",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "fatcontext",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "forbidigo",
+      "category": "BestPractice",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "forcetypeassert",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "funcorder",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "funlen",
+      "category": "Complexity",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "ginkgolinter",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "gocheckcompilerdirectives",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "gochecknoglobals",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "gochecknoinits",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "gochecksumtype",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "gocognit",
+      "category": "Complexity",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "goconst",
+      "category": "Duplication",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "gocritic",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "gocyclo",
+      "category": "Complexity",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "godoclint",
+      "category": "Documentation",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "godot",
+      "category": "Documentation",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "godox",
+      "category": "Documentation",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "goheader",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "gomoddirectives",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "gomodguard",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "goprintffuncname",
+      "category": "Comprehensibility",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "gosec",
+      "category": "Security",
+      "scanType": "SAST",
+      "level": "Error",
+      "enabled": false
+    },
+    {
+      "patternId": "gosmopolitan",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "govet",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "grouper",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "iface",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "importas",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "inamedparam",
+      "category": "Comprehensibility",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "ineffassign",
+      "category": "UnusedCode",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "interfacebloat",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "intrange",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "iotamixing",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "ireturn",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "lll",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "loggercheck",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "maintidx",
+      "category": "Complexity",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "makezero",
+      "category": "Performance",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "mirror",
+      "category": "Performance",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "misspell",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "mnd",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "musttag",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "nakedret",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "nestif",
+      "category": "Complexity",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "nilerr",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "nilnesserr",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "nilnil",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "nlreturn",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "noctx",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "noinlineerr",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "nolintlint",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "nonamedreturns",
+      "category": "Comprehensibility",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "nosprintfhostport",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "paralleltest",
+      "category": "BestPractice",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "perfsprint",
+      "category": "Performance",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "prealloc",
+      "category": "Performance",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "predeclared",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "promlinter",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "protogetter",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "reassign",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "recvcheck",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "revive",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "rowserrcheck",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "sloglint",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "spancheck",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "sqlclosecheck",
+      "category": "Security",
+      "scanType": "SAST",
+      "level": "Error",
+      "enabled": false
+    },
+    {
+      "patternId": "staticcheck",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "tagalign",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "tagliatelle",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "testableexamples",
+      "category": "BestPractice",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "testifylint",
+      "category": "BestPractice",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "testpackage",
+      "category": "BestPractice",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "thelper",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "tparallel",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "unconvert",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "unparam",
+      "category": "UnusedCode",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "unqueryvet",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "unused",
+      "category": "UnusedCode",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "usestdlibvars",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "usetesting",
+      "category": "BestPractice",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "varnamelen",
+      "category": "Comprehensibility",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "wastedassign",
+      "category": "UnusedCode",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "whitespace",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "wrapcheck",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "wsl_v5",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "zerologlint",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    }
+  ]
+}

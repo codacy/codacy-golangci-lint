@@ -1,0 +1,12 @@
+project/*
+.vscode/
+.metals/
+target/
+.bloop/
+src/.DS_Store/
+
+#Ignore vscode AI rules
+.github/copilot-instructions.md
+
+#Ignore vscode AI rules
+.github/instructions/codacy.instructions.md
