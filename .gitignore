@@ -4,6 +4,7 @@ project/*
 target/
 .bloop/
 src/.DS_Store/
+.codacy/
 
 #Ignore vscode AI rules
 .github/copilot-instructions.md

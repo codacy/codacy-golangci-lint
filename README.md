@@ -80,6 +80,24 @@ cd doc-generation
 go run main.go -docFolder=../docs
 ```
 
+## How to update the tool
+
+#### Change .version file
+
+If the version is, for example, 0.0.1, update to the next minor version. This is important to create a new version of the artifact.
+
+#### Change Dockerfile
+
+Change the GolangCI-Lint version at the end of the line to the most recent one: 
+`RUN wget -O- -nv https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b /usr/local/bin v2.7.2`
+
+#### Generate documentation
+
+```bash
+cd doc-generation
+go run main.go -docFolder=../docs
+```
+
 ## What is Codacy?
 
 [Codacy](https://www.codacy.com/) is an Automated Code Review Tool that monitors your technical debt, helps you improve your code quality, teaches best practices to your developers, and helps you save time in Code Reviews.
