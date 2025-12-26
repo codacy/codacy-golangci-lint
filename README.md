@@ -59,7 +59,7 @@ curl -XPOST -L -H "project-token: $PROJECT_TOKEN" \
 
 #### Format
 
-    sbt ";scalafmt;test:scalafmt;sbt:scalafmt"
+    sbt "scalafmtAll; scalafmtSbt"
 
 #### Tests
 
@@ -67,7 +67,7 @@ curl -XPOST -L -H "project-token: $PROJECT_TOKEN" \
 
 ##### Build native image (requires docker)
 
-`sbt "graalvm-native-image:packageBin"`
+`sbt "show GraalVMNativeImage/packageBin"`
 
 #### Build fat-jar
 

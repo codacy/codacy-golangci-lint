@@ -15,7 +15,6 @@ import (
 
 const toolName = "golangci-lint"
 
-// Linter CLI Output structures
 type LinterMetadata struct {
 	Name             string `json:"name"`
 	Description      string `json:"description"`
@@ -45,17 +44,16 @@ func main() {
 }
 
 func run() error {
-	// Get linters from the binary (filtering out deprecated)
+	// Get linters (patterns) from the binary (filtering out deprecated)
 	linters, version, err := getLintersFromCLI()
 	if err != nil {
 		return err
 	}
 
-	// Transform to Codacy models
 	patterns := toCodacyPatterns(linters)
 	descriptions := toCodacyPatternsDescription(linters)
 
-	// Remove old documentation to ensure deprecated linters are deleted
+	// Remove old documentation to ensure deprecated patterns are deleted
 	// Delete patterns.json
 	patternsPath := filepath.Join(docFolder, "patterns.json")
 	if err := os.Remove(patternsPath); err != nil && !os.IsNotExist(err) {
@@ -128,11 +126,20 @@ func getLintersFromCLI() ([]LinterMetadata, string, error) {
 func toCodacyPatterns(linters []LinterMetadata) []codacy.Pattern {
 	var patterns []codacy.Pattern
 	for _, l := range linters {
+		category := mapCategory(l.Name)
+
+		scanType := ""
+		level := "Info"
+		if category == "Security" {
+			scanType = "SAST"
+			level = "Error"
+		}
+
 		patterns = append(patterns, codacy.Pattern{
 			ID:       l.Name,
-			Category: mapCategory(l.Name),
-			Level:    "Info",
-			ScanType: "SAST",
+			Category: category,
+			Level:    level,
+			ScanType: scanType,
 		})
 	}
 	return patterns

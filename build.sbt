@@ -1,4 +1,4 @@
-val scalaVersionNumber = "2.13.16"
+val scalaVersionNumber = "2.13.18"
 val circeVersion = "0.12.3"
 val graalVersion = "22.3.3"
 
