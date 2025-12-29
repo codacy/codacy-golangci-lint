@@ -19,14 +19,12 @@ lazy val root = (project in file("."))
       "com.github.scopt" %% "scopt" % "4.1.0",
       "org.scalatest" %% "scalatest" % "3.2.19" % Test
     ),
-    assembly / assemblyJarName := s"codacy-golangci-lint-assembly-${version.value}.jar",
     graalVMNativeImageGraalVersion := Some(graalVersion),
     graalVMNativeImageOptions ++= Seq(
       "-O1",
       "-H:+ReportExceptionStackTraces",
       "--no-fallback",
       "--report-unsupported-elements-at-runtime",
-      "--static",
-      s"-H:Name=codacy-golangci-lint"
+      "--static"
     )
   )
