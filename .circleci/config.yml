@@ -84,7 +84,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - fix-circle-ci
           context: CodacyAWS
           requires:
             - package_artifacts
