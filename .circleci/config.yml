@@ -44,7 +44,7 @@ workflows:
           cmd: |
             sbt "show GraalVMNativeImage/packageBin" "assembly"
             mkdir -p ~/workdir/artifacts/
-            mv target/scala-2.13/codacy-golangci-lint_2.13-0.1.0-SNAPSHOT.jar ~/workdir/artifacts/codacy-golangci-lint-$(cat .version).jar
+            mv target/scala-2.13/codacy-golangci-lint-assembly-$(cat .version).jar ~/workdir/artifacts/codacy-golangci-lint-$(cat .version).jar
             mv target/graalvm-native-image/codacy-golangci-lint ~/workdir/artifacts/codacy-golangci-lint-$(cat .version)
             ls ~/workdir/artifacts/
           requires:
