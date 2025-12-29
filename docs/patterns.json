@@ -1,6 +1,6 @@
 {
   "name": "golangci-lint",
-  "version": "2.5.0",
+  "version": "2.7.2",
   "patterns": [
     {
       "patternId": "arangolint",
@@ -390,6 +390,12 @@
     },
     {
       "patternId": "mnd",
+      "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "modernize",
       "category": "ErrorProne",
       "level": "Info",
       "enabled": false

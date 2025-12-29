@@ -325,6 +325,11 @@
     "description": "An analyzer to detect magic numbers."
   },
   {
+    "patternId": "modernize",
+    "title": "modernize",
+    "description": "A suite of analyzers that suggest simplifications to Go code, using modern language and library features."
+  },
+  {
     "patternId": "musttag",
     "title": "musttag",
     "description": "Enforce field tags in (un)marshaled structs."
