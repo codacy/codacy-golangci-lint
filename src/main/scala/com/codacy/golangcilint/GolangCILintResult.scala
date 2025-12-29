@@ -10,7 +10,7 @@ case class GolangCILintIssue(ruleId: String, details: String, file: String, line
 
   def toCodacyIssue(toolName: String): Issue = {
     Issue(
-      results.Pattern.Id(ruleId),
+      results.Pattern.Id(s"${toolName}_$ruleId"),
       Paths.get(file),
       Issue.Message(details),
       results.Result.Level.Info,

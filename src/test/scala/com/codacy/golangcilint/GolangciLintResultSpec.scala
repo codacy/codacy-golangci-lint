@@ -7,7 +7,7 @@ import org.scalatest.wordspec.AnyWordSpec
 class GolangCILintResultSpec extends AnyWordSpec with Matchers {
   "GolangCILintIssue" should {
     "be converted into Issue correctly" in {
-      val golangcilintIssue = GolangCILintIssue("golangci-lint_errcheck", "error not checked", "test.go", 1, 2)
+      val golangcilintIssue = GolangCILintIssue("errcheck", "error not checked", "test.go", 1, 2)
 
       val issue = golangcilintIssue.toCodacyIssue("golangci-lint")
 
