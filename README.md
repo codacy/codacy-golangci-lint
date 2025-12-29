@@ -67,7 +67,7 @@ curl -XPOST -L -H "project-token: $PROJECT_TOKEN" \
 
 ##### Build native image (requires docker)
 
-`sbt "show GraalVMNativeImage/packageBin"`
+	sbt "show GraalVMNativeImage/packageBin"
 
 #### Build fat-jar
 
@@ -81,10 +81,6 @@ go run main.go -docFolder=../docs
 ```
 
 ## How to update the tool
-
-#### Change .version file
-
-If the version is, for example, 0.0.1, update to the next minor version. This is important to create a new version of the artifact.
 
 #### Change Dockerfile
 
