@@ -79,8 +79,8 @@ workflows:
             - package_artifacts
       - codacy/publish_s3:
           name: publish_s3
-          path: bin/codacy-golangci-lint
-          files: artifacts/codacy-golangci-lint-$(cat .version) artifacts/codacy-golangci-lint-$(cat .version).jar
+          path: ~/workdir/artifacts/
+          files: codacy-golangci-lint-$(cat .version) codacy-golangci-lint-$(cat .version).jar
           filters:
             branches:
               only:
