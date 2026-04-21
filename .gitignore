@@ -11,3 +11,11 @@ src/.DS_Store/
 
 #Ignore vscode AI rules
 .github/instructions/codacy.instructions.md
+
+# GATE.md
+.gate/credentials
+.gate/.cache/
+.gate/.last-analysis
+.gate/.iteration-count
+.gate/.last-pass-hash
+.gate/.last-intent
