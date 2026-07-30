@@ -1,6 +1,6 @@
 {
   "name": "golangci-lint",
-  "version": "2.7.2",
+  "version": "2.11.0",
   "patterns": [
     {
       "patternId": "arangolint",

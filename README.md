@@ -85,7 +85,7 @@ go run main.go -docFolder=../docs
 #### Change Dockerfile
 
 Change the GolangCI-Lint version at the end of the line to the most recent one: 
-`RUN wget -O- -nv https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b /usr/local/bin v2.7.2`
+`RUN wget -O- -nv https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b /usr/local/bin v2.11.0`
 
 #### Generate documentation
 
@@ -114,7 +114,7 @@ Both generated artifacts come from **`doc-generation/main.go`** (module `github.
 
 | File | What it controls | What to check |
 |---|---|---|
-| `Dockerfile` → `RUN wget ... install.sh \| sh -s -- -b /usr/local/bin v2.7.2` | Which `golangci-lint` release is installed in the builder stage and used to generate `docs/` | Bump the `v2.7.2` tag to the target release; confirm it exists at https://github.com/golangci/golangci-lint/releases. |
+| `Dockerfile` → `RUN wget ... install.sh \| sh -s -- -b /usr/local/bin v2.11.0` | Which `golangci-lint` release is installed in the builder stage and used to generate `docs/` | Bump the `v2.11.0` tag to the target release; confirm it exists at https://github.com/golangci/golangci-lint/releases. |
 | `Dockerfile` → `FROM golang:1.25-alpine3.23 AS builder` / `FROM alpine:3.23` | Go toolchain used to build `doc-generation`, and the final runtime base image | Only bump if the new `golangci-lint` version requires a newer Go, or to pick up an Alpine security patch. |
 | `doc-generation/go.mod` → `go 1.23.0` / `toolchain go1.25.5` and `github.com/codacy/codacy-engine-golang-seed/v6` | Go language version and shared Codacy Go seed library used by the doc generator itself | Bump the seed dependency independently if a newer version is published; this is unrelated to the `golangci-lint` version. |
 | `build.sbt` → `scalaVersionNumber`, `circeVersion`, `graalVersion`, `com.codacy" %% "codacy-analysis-cli-model"` | Scala/Circe/GraalVM toolchain and the Codacy analysis model library used by the converter itself | Only bump as part of a dependency-maintenance task, not a `golangci-lint` version bump. |
@@ -124,7 +124,7 @@ Note there is **no `go.mod` at the repo root** pinning `golangci-lint` as a Go d
 
 ### 3. Step-by-step update procedure
 
-1. **Bump the `golangci-lint` version** in the `Dockerfile` (the `v2.7.2` tag), and the Go/Alpine base images or the `codacy/base` orb version only if scoped by the task.
+1. **Bump the `golangci-lint` version** in the `Dockerfile` (the `v2.11.0` tag), and the Go/Alpine base images or the `codacy/base` orb version only if scoped by the task.
 2. **Regenerate the docs.** Install the target `golangci-lint` version locally (e.g. `wget -O- -nv https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b /usr/local/bin v<version>` so it's on `PATH`), then run:
    ```bash
    cd doc-generation
