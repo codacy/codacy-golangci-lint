@@ -6,7 +6,17 @@ COPY doc-generation /doc-generation
 
 WORKDIR /doc-generation
 RUN mkdir -p /docs/description
-RUN GOTOOLCHAIN=auto GOBIN=/usr/local/bin go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.13.2
+RUN set -e; \
+    version=2.13.2; \
+    os=$(go env GOOS); \
+    arch=$(go env GOARCH); \
+    file="golangci-lint-${version}-${os}-${arch}.tar.gz"; \
+    base="https://github.com/golangci/golangci-lint/releases/download/v${version}"; \
+    wget -q -O "/tmp/${file}" "${base}/${file}"; \
+    wget -q -O /tmp/checksums.txt "${base}/golangci-lint-${version}-checksums.txt"; \
+    (cd /tmp && grep " ${file}\$" checksums.txt | sha256sum -c -); \
+    tar -xzf "/tmp/${file}" -C /tmp; \
+    mv "/tmp/golangci-lint-${version}-${os}-${arch}/golangci-lint" /usr/local/bin/golangci-lint
 RUN go run main.go -docFolder=../docs
 
 FROM alpine:3.23
