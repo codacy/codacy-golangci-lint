@@ -1,3 +1,3 @@
 ## sloglint
 
-Ensure consistent code style when using log/slog.
+Ensures consistent code style when using log/slog.

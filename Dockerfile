@@ -6,7 +6,7 @@ COPY doc-generation /doc-generation
 
 WORKDIR /doc-generation
 RUN mkdir -p /docs/description
-RUN wget -O- -nv https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b /usr/local/bin v2.11.0
+RUN GOTOOLCHAIN=auto GOBIN=/usr/local/bin go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.13.2
 RUN go run main.go -docFolder=../docs
 
 FROM alpine:3.23

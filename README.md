@@ -85,7 +85,7 @@ go run main.go -docFolder=../docs
 #### Change Dockerfile
 
 Change the GolangCI-Lint version at the end of the line to the most recent one: 
-`RUN wget -O- -nv https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b /usr/local/bin v2.11.0`
+`RUN GOTOOLCHAIN=auto GOBIN=/usr/local/bin go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.13.2`
 
 #### Generate documentation
 
@@ -114,18 +114,20 @@ Both generated artifacts come from **`doc-generation/main.go`** (module `github.
 
 | File | What it controls | What to check |
 |---|---|---|
-| `Dockerfile` → `RUN wget ... install.sh \| sh -s -- -b /usr/local/bin v2.11.0` | Which `golangci-lint` release is installed in the builder stage and used to generate `docs/` | Bump the `v2.11.0` tag to the target release; confirm it exists at https://github.com/golangci/golangci-lint/releases. |
+| `Dockerfile` → `RUN GOTOOLCHAIN=auto GOBIN=/usr/local/bin go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.13.2` | Which `golangci-lint` release is installed in the builder stage and used to generate `docs/` | Bump the `v2.13.2` tag to the target release; confirm it exists at https://github.com/golangci/golangci-lint/releases. |
 | `Dockerfile` → `FROM golang:1.25-alpine3.23 AS builder` / `FROM alpine:3.23` | Go toolchain used to build `doc-generation`, and the final runtime base image | Only bump if the new `golangci-lint` version requires a newer Go, or to pick up an Alpine security patch. |
 | `doc-generation/go.mod` → `go 1.23.0` / `toolchain go1.25.5` and `github.com/codacy/codacy-engine-golang-seed/v6` | Go language version and shared Codacy Go seed library used by the doc generator itself | Bump the seed dependency independently if a newer version is published; this is unrelated to the `golangci-lint` version. |
 | `build.sbt` → `scalaVersionNumber`, `circeVersion`, `graalVersion`, `com.codacy" %% "codacy-analysis-cli-model"` | Scala/Circe/GraalVM toolchain and the Codacy analysis model library used by the converter itself | Only bump as part of a dependency-maintenance task, not a `golangci-lint` version bump. |
 | `.circleci/config.yml` → `codacy/base@13.0.0` orb | Shared CircleCI steps (checkout, sbt, docker publish, etc.) | Check the latest published version of the `codacy/base` orb if asked to bump CI tooling. |
 
-Note there is **no `go.mod` at the repo root** pinning `golangci-lint` as a Go dependency — it is installed as a prebuilt binary via the official install script, so the version string only lives in the `Dockerfile`.
+Note there is **no `go.mod` at the repo root** pinning `golangci-lint` as a Go dependency — it is installed in the builder stage via `go install .../golangci-lint/v2/cmd/golangci-lint@<version>`, so the version string only lives in the `Dockerfile`.
+
+> **Why `go install` instead of the official `install.sh`:** the upstream install script (fetched from `golangci-lint`'s `master` branch) resolves each asset's checksum with `grep "${BASENAME}" "${checksums}"` against `golangci-lint-<version>-checksums.txt`. Since `golangci-lint` v2.12.0, that checksums file also lists a `<BASENAME>.sbom.json` entry per platform, whose name contains the tarball's `BASENAME` as a substring — so the unanchored `grep` matches both lines, `want` ends up as two newline-joined checksums, and the comparison against the single-line `got` always fails, even though the downloaded tarball is correct (verified independently with `sha256sum`). This is upstream breakage in `install.sh` for every `golangci-lint` release from v2.12.0 onward, not something fixable from this Dockerfile besides switching install methods; `go install` sidesteps it entirely since the `golang` builder stage already has the Go toolchain.
 
 ### 3. Step-by-step update procedure
 
-1. **Bump the `golangci-lint` version** in the `Dockerfile` (the `v2.11.0` tag), and the Go/Alpine base images or the `codacy/base` orb version only if scoped by the task.
-2. **Regenerate the docs.** Install the target `golangci-lint` version locally (e.g. `wget -O- -nv https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b /usr/local/bin v<version>` so it's on `PATH`), then run:
+1. **Bump the `golangci-lint` version** in the `Dockerfile` (the `v2.13.2` tag), and the Go/Alpine base images or the `codacy/base` orb version only if scoped by the task.
+2. **Regenerate the docs.** Install the target `golangci-lint` version locally (e.g. `GOBIN=$(go env GOPATH)/bin go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v<version>` so it's on `PATH`), then run:
    ```bash
    cd doc-generation
    go run main.go -docFolder=../docs
@@ -143,8 +145,9 @@ Note there is **no `go.mod` at the repo root** pinning `golangci-lint` as a Go d
 
 | Symptom | Likely cause | Fix |
 |---|---|---|
-| `go run main.go` fails with "ensure golangci-lint is installed" | The doc generator shells out to a `golangci-lint` binary on `PATH` that isn't installed, or is the wrong version | Reinstall the exact target version via the official install script before regenerating docs. |
+| `go run main.go` fails with "ensure golangci-lint is installed" | The doc generator shells out to a `golangci-lint` binary on `PATH` that isn't installed, or is the wrong version | Reinstall the exact target version via `go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v<version>` before regenerating docs. |
 | `docs/patterns.json` / `docs/description/*` diff shows unrelated linters appearing or disappearing | You regenerated docs against a different installed `golangci-lint` version than the one just pinned in the `Dockerfile` | Make sure the locally installed CLI version matches the `Dockerfile` tag exactly before regenerating. |
+| `docker build` fails at the install step with `hash_sha256_verify checksum for '<tarball>' did not verify` when using the official `install.sh` | Upstream `install.sh` bug: since `golangci-lint` v2.12.0, `checksums.txt` also lists a `<tarball>.sbom.json` line, and the script's unanchored `grep "${BASENAME}"` matches both lines, producing a bogus two-line "want" hash that never matches. The downloaded tarball itself is fine. | Don't use `install.sh`; install via `go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v<version>` in the Go builder stage instead (already the approach used in the `Dockerfile`). |
 
 ### 5. Definition of done
 
