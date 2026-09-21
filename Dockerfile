@@ -14,7 +14,7 @@ RUN set -e; \
     base="https://github.com/golangci/golangci-lint/releases/download/v${version}"; \
     wget -q -O "/tmp/${file}" "${base}/${file}"; \
     wget -q -O /tmp/checksums.txt "${base}/golangci-lint-${version}-checksums.txt"; \
-    (cd /tmp && grep " ${file}\$" checksums.txt | sha256sum -c -); \
+    grep " ${file}\$" /tmp/checksums.txt | sed "s#${file}\$#/tmp/${file}#" | sha256sum -c -; \
     tar -xzf "/tmp/${file}" -C /tmp; \
     mv "/tmp/golangci-lint-${version}-${os}-${arch}/golangci-lint" /usr/local/bin/golangci-lint
 RUN go run main.go -docFolder=../docs
