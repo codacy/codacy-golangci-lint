@@ -9,6 +9,15 @@ workflows:
     jobs:
       - codacy/checkout_and_version:
           write_sbt_version: true
+          pre-steps:
+            - run:
+                name: Install git and ssh
+                command: |
+                  if command -v apt-get > /dev/null; then
+                    apt-get update -qq && apt-get install -y -q git openssh-client
+                  elif command -v apk > /dev/null; then
+                    apk add --no-cache git openssh
+                  fi
       - codacy/sbt:
           name: populate_cache
           persist_to_workspace: true
