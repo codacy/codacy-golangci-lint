@@ -1,6 +1,6 @@
 {
   "name": "golangci-lint",
-  "version": "2.11.0",
+  "version": "2.13.2",
   "patterns": [
     {
       "patternId": "arangolint",
@@ -36,6 +36,12 @@
     {
       "patternId": "canonicalheader",
       "category": "ErrorProne",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "clickhouselint",
+      "category": "CodeStyle",
       "level": "Info",
       "enabled": false
     },
@@ -142,7 +148,7 @@
       "enabled": false
     },
     {
-      "patternId": "exhaustruct",
+      "patternId": "exhaustruct_v5",
       "category": "ErrorProne",
       "level": "Info",
       "enabled": false
@@ -268,7 +274,7 @@
       "enabled": false
     },
     {
-      "patternId": "gomodguard",
+      "patternId": "gomodguard_v2",
       "category": "ErrorProne",
       "level": "Info",
       "enabled": false

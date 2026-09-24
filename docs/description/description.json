@@ -30,6 +30,11 @@
     "description": "Canonicalheader checks whether net/http.Header uses canonical header."
   },
   {
+    "patternId": "clickhouselint",
+    "title": "clickhouselint",
+    "description": "Detects common mistakes with the ClickHouse native Go driver API."
+  },
+  {
     "patternId": "containedctx",
     "title": "containedctx",
     "description": "Containedctx is a linter that detects struct contained context.Context field."
@@ -115,8 +120,8 @@
     "description": "Check exhaustiveness of enum switch statements."
   },
   {
-    "patternId": "exhaustruct",
-    "title": "exhaustruct",
+    "patternId": "exhaustruct_v5",
+    "title": "exhaustruct_v5",
     "description": "Checks if all structure fields are initialized."
   },
   {
@@ -220,8 +225,8 @@
     "description": "Manage the use of 'replace', 'retract', and 'excludes' directives in go.mod."
   },
   {
-    "patternId": "gomodguard",
-    "title": "gomodguard",
+    "patternId": "gomodguard_v2",
+    "title": "gomodguard_v2",
     "description": "Allow and blocklist linter for direct Go module dependencies. This is different from depguard where there are different block types for example version constraints and module recommendations."
   },
   {
@@ -442,7 +447,7 @@
   {
     "patternId": "sloglint",
     "title": "sloglint",
-    "description": "Ensure consistent code style when using log/slog."
+    "description": "Ensures consistent code style when using log/slog."
   },
   {
     "patternId": "spancheck",
